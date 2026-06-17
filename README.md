@@ -4,41 +4,18 @@ A production-grade corporate governance intelligence platform under the **Govern
 
 ---
 
-## Architecture Diagram
+## Architecture
 
 ```mermaid
 graph TD
-    subgraph Data Layer
-        DB_COMP[(companies.json)]
-        DB_CONT[(controversies.json)]
-        DB_TAXO[(taxonomy.json)]
-    end
+    FE["Next.js Frontend (React)"] <-->|"HTTP/JSON<br/>REST API"| BE["FastAPI Backend (Python)"]
+    FE --- FE_TECH["Leaflet Map<br/>Recharts<br/>Tailwind CSS"]
+    BE --- BE_TECH["JSON Data Files<br/>(companies, controversies, taxonomy)"]
 
-    subgraph Service Layer (FastAPI Backend)
-        CE[Controversy Scoring Engine]
-        GDELT[GDELT News Service]
-        EDGAR[SEC EDGAR Service]
-    end
-
-    subgraph Web Clients (Next.js 15 Frontend)
-        MAP[SignalMap - Leaflet Map]
-        SIDE[Intelligence Sidebar]
-        CARD[Company Dossier Card]
-        CHARTS[Recharts Analytical Panels]
-        FILTERS[Multi-Dimensional Filter Panel]
-    end
-
-    %% Data flow and connections
-    CE -->|Generates & Seeds| Data Layer
-    GDELT -->|Mock Headlines| CE
-    EDGAR -->|Mock SEC Disclosures| CE
-
-    DB_COMP -->|Exposed via /api/companies| Web Clients
-    DB_CONT -->|Exposed via /api/controversies| Web Clients
-    DB_TAXO -->|Exposed via /api/taxonomy| Web Clients
-    
-    Web Clients -->|Query Filters| DB_CONT
-    Web Clients -->|CSV Data Download| Export[Client CSV Export]
+    style FE fill:#0B1117,stroke:#38BDF8,stroke-width:2px,color:#F3F4F6
+    style BE fill:#0B1117,stroke:#38BDF8,stroke-width:2px,color:#F3F4F6
+    style FE_TECH fill:none,stroke:none,color:#9CA3AF
+    style BE_TECH fill:none,stroke:none,color:#9CA3AF
 ```
 
 ---
@@ -55,19 +32,15 @@ graph TD
 
 ---
 
-## Technology Stack
+## Tech Stack
 
-### Frontend
-- **Framework:** Next.js 15 (App Router, TypeScript)
-- **Styling:** TailwindCSS v4 (Custom dark themes & scrollbars)
-- **Mapping:** Leaflet & React Leaflet
-- **Charts:** Recharts (Area and Bar charts)
-- **Icons:** Lucide Icons
-
-### Backend
-- **Framework:** FastAPI (Python 3.10+)
-- **Server:** Uvicorn
-- **Data Engineering:** Pandas & Pydantic v2
+| Layer | Technology |
+| :--- | :--- |
+| **Frontend** | Next.js 16 (App Router), TypeScript, Tailwind CSS |
+| **Visualization** | Leaflet Map, React Leaflet, Recharts |
+| **Backend** | FastAPI, Python |
+| **Data** | Synthetic dataset (50 companies, 229 controversies, taxonomy) |
+| **Styling** | Bloomberg-inspired dark theme with Inter font |
 
 ---
 
