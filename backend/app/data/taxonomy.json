@@ -1,0 +1,42 @@
+[
+  {
+    "category": "Governance Fraud",
+    "weight": 100,
+    "description": "Systemic corporate fraud, deceptive practices, or illegal financial reporting by board or executive leadership."
+  },
+  {
+    "category": "Accounting Issues",
+    "weight": 90,
+    "description": "Misstatement of financial reports, audit failures, or intentional misclassification of assets."
+  },
+  {
+    "category": "Corruption",
+    "weight": 85,
+    "description": "Bribery, extortion, political lobbying violations, or illegal kickbacks."
+  },
+  {
+    "category": "Environmental Spill",
+    "weight": 80,
+    "description": "Release of pollutants, oil spills, toxic waste dumpings, or ecological habitat destruction."
+  },
+  {
+    "category": "Labor Rights",
+    "weight": 75,
+    "description": "Exploitative labor, child labor, modern slavery, collective bargaining suppression, or wage theft."
+  },
+  {
+    "category": "Data Privacy",
+    "weight": 70,
+    "description": "Unconsented surveillance, data leaks, customer tracking abuses, or failure to secure personal identifiable info."
+  },
+  {
+    "category": "Workplace Safety",
+    "weight": 65,
+    "description": "Industrial accidents, hazardous working environments, lack of protective equipment, or fatalities."
+  },
+  {
+    "category": "Executive Misconduct",
+    "weight": 60,
+    "description": "Harassment, ethical breaches, insider trading, or abuse of power by high-level management."
+  }
+]

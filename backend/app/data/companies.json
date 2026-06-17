@@ -1,0 +1,302 @@
+[
+  {
+    "id": 1,
+    "name": "Aether Petroleum",
+    "country": "USA",
+    "sector": "Energy"
+  },
+  {
+    "id": 2,
+    "name": "Vertex Gas & Power",
+    "country": "GBR",
+    "sector": "Energy"
+  },
+  {
+    "id": 3,
+    "name": "Helios Solar Corp",
+    "country": "DEU",
+    "sector": "Energy"
+  },
+  {
+    "id": 4,
+    "name": "Deepwater Drillers",
+    "country": "FRA",
+    "sector": "Energy"
+  },
+  {
+    "id": 5,
+    "name": "Nordic Wind Ltd",
+    "country": "JPN",
+    "sector": "Energy"
+  },
+  {
+    "id": 6,
+    "name": "Zephyr Energy Solutions",
+    "country": "CAN",
+    "sector": "Energy"
+  },
+  {
+    "id": 7,
+    "name": "Apex Coal & Mining",
+    "country": "AUS",
+    "sector": "Energy"
+  },
+  {
+    "id": 8,
+    "name": "Terra Thermal Partners",
+    "country": "BRA",
+    "sector": "Energy"
+  },
+  {
+    "id": 9,
+    "name": "Horizon Hydrogen",
+    "country": "IND",
+    "sector": "Energy"
+  },
+  {
+    "id": 10,
+    "name": "Nova Biofuels Corp",
+    "country": "CHN",
+    "sector": "Energy"
+  },
+  {
+    "id": 11,
+    "name": "Apex Wealth Management",
+    "country": "ZAF",
+    "sector": "Finance"
+  },
+  {
+    "id": 12,
+    "name": "Meridian Union Bank",
+    "country": "NLD",
+    "sector": "Finance"
+  },
+  {
+    "id": 13,
+    "name": "Crestview Holdings",
+    "country": "SGP",
+    "sector": "Finance"
+  },
+  {
+    "id": 14,
+    "name": "Nexus Venture Partners",
+    "country": "CHE",
+    "sector": "Finance"
+  },
+  {
+    "id": 15,
+    "name": "Vanguard Trust Group",
+    "country": "SWE",
+    "sector": "Finance"
+  },
+  {
+    "id": 16,
+    "name": "Stellar Credit Corp",
+    "country": "USA",
+    "sector": "Finance"
+  },
+  {
+    "id": 17,
+    "name": "Alpine Reinsurance",
+    "country": "GBR",
+    "sector": "Finance"
+  },
+  {
+    "id": 18,
+    "name": "First Capital Assurance",
+    "country": "DEU",
+    "sector": "Finance"
+  },
+  {
+    "id": 19,
+    "name": "Omni Securities",
+    "country": "FRA",
+    "sector": "Finance"
+  },
+  {
+    "id": 20,
+    "name": "Zenith Microfinance",
+    "country": "JPN",
+    "sector": "Finance"
+  },
+  {
+    "id": 21,
+    "name": "Quantum Compute Co",
+    "country": "CAN",
+    "sector": "Technology"
+  },
+  {
+    "id": 22,
+    "name": "Cyberdyne Systems",
+    "country": "AUS",
+    "sector": "Technology"
+  },
+  {
+    "id": 23,
+    "name": "Sovereign Cloud Labs",
+    "country": "BRA",
+    "sector": "Technology"
+  },
+  {
+    "id": 24,
+    "name": "Signal Dynamics LLC",
+    "country": "IND",
+    "sector": "Technology"
+  },
+  {
+    "id": 25,
+    "name": "OmniData Analytics",
+    "country": "CHN",
+    "sector": "Technology"
+  },
+  {
+    "id": 26,
+    "name": "NeuralLink Solutions",
+    "country": "ZAF",
+    "sector": "Technology"
+  },
+  {
+    "id": 27,
+    "name": "Matrix Telecoms",
+    "country": "NLD",
+    "sector": "Technology"
+  },
+  {
+    "id": 28,
+    "name": "Prism Social Media",
+    "country": "SGP",
+    "sector": "Technology"
+  },
+  {
+    "id": 29,
+    "name": "Apex Semiconductor",
+    "country": "CHE",
+    "sector": "Technology"
+  },
+  {
+    "id": 30,
+    "name": "Krypton Cyber Security",
+    "country": "SWE",
+    "sector": "Technology"
+  },
+  {
+    "id": 31,
+    "name": "BioGenix Pharma",
+    "country": "USA",
+    "sector": "Healthcare"
+  },
+  {
+    "id": 32,
+    "name": "Thera Therapeutics",
+    "country": "GBR",
+    "sector": "Healthcare"
+  },
+  {
+    "id": 33,
+    "name": "Apex Medical Devices",
+    "country": "DEU",
+    "sector": "Healthcare"
+  },
+  {
+    "id": 34,
+    "name": "CareAlliance Health",
+    "country": "FRA",
+    "sector": "Healthcare"
+  },
+  {
+    "id": 35,
+    "name": "Beacon Diagnostics",
+    "country": "JPN",
+    "sector": "Healthcare"
+  },
+  {
+    "id": 36,
+    "name": "Genesis Genomics",
+    "country": "CAN",
+    "sector": "Healthcare"
+  },
+  {
+    "id": 37,
+    "name": "Pinnacle Pharmaceuticals",
+    "country": "AUS",
+    "sector": "Healthcare"
+  },
+  {
+    "id": 38,
+    "name": "Salus Biotech",
+    "country": "BRA",
+    "sector": "Healthcare"
+  },
+  {
+    "id": 39,
+    "name": "Summit Medical Group",
+    "country": "IND",
+    "sector": "Healthcare"
+  },
+  {
+    "id": 40,
+    "name": "VitaLife Laboratories",
+    "country": "CHN",
+    "sector": "Healthcare"
+  },
+  {
+    "id": 41,
+    "name": "Titan Heavy Industries",
+    "country": "ZAF",
+    "sector": "Manufacturing"
+  },
+  {
+    "id": 42,
+    "name": "Atlas Auto Group",
+    "country": "NLD",
+    "sector": "Manufacturing"
+  },
+  {
+    "id": 43,
+    "name": "Standard Steel Corp",
+    "country": "SGP",
+    "sector": "Manufacturing"
+  },
+  {
+    "id": 44,
+    "name": "Precision Polymer Co",
+    "country": "CHE",
+    "sector": "Manufacturing"
+  },
+  {
+    "id": 45,
+    "name": "EcoPack Materials",
+    "country": "SWE",
+    "sector": "Manufacturing"
+  },
+  {
+    "id": 46,
+    "name": "NextGen Avionics",
+    "country": "USA",
+    "sector": "Manufacturing"
+  },
+  {
+    "id": 47,
+    "name": "Pioneer Chemical Corp",
+    "country": "GBR",
+    "sector": "Manufacturing"
+  },
+  {
+    "id": 48,
+    "name": "Vanguard Robotics",
+    "country": "DEU",
+    "sector": "Manufacturing"
+  },
+  {
+    "id": 49,
+    "name": "Starlight Textiles",
+    "country": "FRA",
+    "sector": "Manufacturing"
+  },
+  {
+    "id": 50,
+    "name": "Summit Ceramics",
+    "country": "JPN",
+    "sector": "Manufacturing"
+  }
+]
