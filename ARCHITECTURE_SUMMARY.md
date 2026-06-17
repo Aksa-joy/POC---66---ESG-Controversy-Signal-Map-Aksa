@@ -104,11 +104,11 @@ Data structures are validated using Pydantic schemas.
 
 The Controversy Severity Score is computed dynamically or pre-calculated during seeding according to the following formula:
 
-$$\text{severity} = \text{source\_weight} + \text{recency\_weight} + \text{repetition\_weight} + \text{category\_weight}$$
+$$\text{Severity} = \text{Source Weight} + \text{Recency Weight} + \text{Repetition Weight} + \text{Category Weight}$$
 
 ### Weighting Parameters
 
-#### 1. Source Weight ($\text{source\_weight}$)
+#### 1. Source Weight (`source_weight`)
 Reflects the credibility and distribution reach of the report:
 - **SEC EDGAR:** $25$
 - **Bloomberg:** $20$
@@ -117,23 +117,23 @@ Reflects the credibility and distribution reach of the report:
 - **NGO Report:** $10$
 - **Local News:** $5$
 
-#### 2. Recency Weight ($\text{recency\_weight}$)
+#### 2. Recency Weight (`recency_weight`)
 Calculated based on days elapsed relative to the target epoch (`2026-06-12`):
 - **0 - 7 Days:** $25$
 - **8 - 30 Days:** $18$
 - **31 - 90 Days:** $10$
 - **91+ Days:** $3$
 
-#### 3. Repetition Weight ($\text{repetition\_weight}$)
+#### 3. Repetition Weight (`repetition_weight`)
 Adds severity for companies with repeated incidents:
 - **First Incident:** $0$
 - **Second Incident:** $5$
 - **Third Incident:** $10$
 - **Fourth or more:** $15$
 
-#### 4. Category Weight ($\text{category\_weight}$)
-Determined by mapping the ESG Taxonomy base score ($\text{taxonomy\_weight}$) to a scaled maximum of $35$:
-$$\text{category\_weight} = \text{taxonomy\_weight} \times 0.35$$
+#### 4. Category Weight (`category_weight`)
+Determined by mapping the ESG Taxonomy base score (`taxonomy_weight`) to a scaled maximum of $35$:
+$$\text{Category Weight} = \text{Taxonomy Weight} \times 0.35$$
 
 Base taxonomy weights:
 - **Governance Fraud:** $100$
@@ -146,7 +146,7 @@ Base taxonomy weights:
 - **Executive Misconduct:** $60$
 
 *Example: A news report about an Environmental Spill ($80 \times 0.35 = 28$ category weight) from Reuters ($18$ weight) occurring 5 days ago ($25$ weight) for a company with 1 prior incident ($5$ weight) yields:*
-$$\text{severity} = 18 + 25 + 5 + 28 = 76$$
+$$\text{Severity} = 18 + 25 + 5 + 28 = 76$$
 
 ---
 

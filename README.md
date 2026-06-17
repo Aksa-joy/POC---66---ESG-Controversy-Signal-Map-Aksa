@@ -24,7 +24,7 @@ graph TD
 
 - **Geospatial Signal Map:** Interactive Leaflet map styled for dark mode using CartoDB Dark Matter tiles. Renders dynamic markers with animated "ping" signals representing severity levels.
 - **Dynamic Scoring Engine:** Computes risk levels based on:
-  $$\text{severity} = \text{source\_weight} + \text{recency\_weight} + \text{repetition\_weight} + \text{category\_weight}$$
+  $$\text{Severity} = \text{Source Weight} + \text{Recency Weight} + \text{Repetition Weight} + \text{Category Weight}$$
 - **Company Dossiers:** High-density sidebars detailing corporate metadata, average compliance severity levels, news streams (GDELT), and regulatory filings (SEC EDGAR).
 - **Multi-Dimensional Filtration:** Filter by country, sector, company, ESG category, minimum severity, and date range.
 - **Analytical Charting:** Dynamic trends showing controversy counts over time, category pillar densities, and sector risk rankings.
