@@ -2,6 +2,7 @@ import os
 import sys
 import json
 from datetime import datetime, timedelta
+from contextlib import asynccontextmanager
 
 # Adjust sys.path to support direct execution of this script
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -12,10 +13,27 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.routes import companies, controversies, trends, taxonomy
 from app.services.controversy_engine import DATA_DIR, generate_mock_data
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """
+    Ensure mock data files are generated on startup.
+    """
+    comp_file = os.path.join(DATA_DIR, "companies.json")
+    cont_file = os.path.join(DATA_DIR, "controversies.json")
+    tax_file = os.path.join(DATA_DIR, "taxonomy.json")
+    
+    if not os.path.exists(comp_file) or not os.path.exists(cont_file) or not os.path.exists(tax_file):
+        print("Data files missing. Generating mock datasets...")
+        generate_mock_data()
+    else:
+        print("Data files verified.")
+    yield
+
 app = FastAPI(
     title="ESG Controversy Signal Map API",
     description="Intelligence backend for governance and trust ESG signaling",
-    version="1.0.0"
+    version="1.0.0",
+    lifespan=lifespan
 )
 
 # CORS configuration
@@ -32,21 +50,6 @@ app.include_router(companies.router, prefix="/api")
 app.include_router(controversies.router, prefix="/api")
 app.include_router(trends.router, prefix="/api")
 app.include_router(taxonomy.router, prefix="/api")
-
-@app.on_event("startup")
-def startup_event():
-    """
-    Ensure mock data files are generated on startup.
-    """
-    comp_file = os.path.join(DATA_DIR, "companies.json")
-    cont_file = os.path.join(DATA_DIR, "controversies.json")
-    tax_file = os.path.join(DATA_DIR, "taxonomy.json")
-    
-    if not os.path.exists(comp_file) or not os.path.exists(cont_file) or not os.path.exists(tax_file):
-        print("Data files missing. Generating mock datasets...")
-        generate_mock_data()
-    else:
-        print("Data files verified.")
 
 @app.get("/")
 def read_root():
