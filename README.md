@@ -121,9 +121,17 @@ POC-66-ESG-Controversy-Signal-Map/
    python app/services/controversy_engine.py
    ```
 4. Start the FastAPI development server:
+   
+   **Windows (PowerShell/CMD):**
+   ```bash
+   python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+   ```
+   
+   **macOS/Linux:**
    ```bash
    uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
    ```
+   
    The backend API will be available at `http://localhost:8000`.
 
 ### 3. Run Frontend
@@ -140,6 +148,39 @@ POC-66-ESG-Controversy-Signal-Map/
    npm run dev
    ```
    Open `http://localhost:3000` in your web browser.
+
+---
+
+## Live Data Fetching
+
+### How It Works
+
+The backend implements **real-time data enrichment** when users drill down into specific companies:
+
+- **GDELT News Feed (`gdelt_service.py`):** 
+  - Queries Google News RSS for articles matching company name + ESG category
+  - Extracts headlines, URLs, and source domains
+  - Falls back to simulated high-fidelity data if live fetch fails
+
+- **SEC EDGAR Filings (`edgar_service.py`):**
+  - Queries Google News RSS for SEC filings (site:sec.gov)
+  - Extracts filing types (8-K, 10-Q, 10-K) and risk factor disclosures
+  - Falls back to simulated disclosures if live fetch unavailable
+
+### Triggering Live Fetch
+
+Live enrichment is **triggered automatically** when:
+1. User clicks a company marker on the map, OR
+2. User selects a company from the filter dropdown
+
+**Live fetch does NOT occur** for bulk controversy lists (improves performance).
+
+### Fallback Behavior
+
+All live data requests have **timeout protection (5 seconds)** and **graceful degradation**:
+- If Google News RSS is unavailable or slow → synthetic but realistic data is used
+- Simulated data maintains same schema and quality as real data
+- Users always see populated company dossiers (no blank fields)
 
 ---
 
