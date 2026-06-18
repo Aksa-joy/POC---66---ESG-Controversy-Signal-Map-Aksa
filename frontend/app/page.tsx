@@ -130,6 +130,22 @@ export default function DashboardPage() {
 
   const handleSelectCompany = (companyName: string) => {
     setSelectedCompany(companyName);
+    
+    // Background-fetch live, enriched GDELT news and SEC disclosures for this specific company
+    if (companyName) {
+      api.getControversies({ company: companyName })
+        .then((liveData) => {
+          setControversies((prev) => {
+            const rest = prev.filter(
+              (c) => c.company.toLowerCase() !== companyName.toLowerCase()
+            );
+            return [...rest, ...liveData].sort((a, b) => b.date.localeCompare(a.date));
+          });
+        })
+        .catch((err) => {
+          console.error("Failed to fetch live data for " + companyName + ":", err);
+        });
+    }
   };
 
   const handleResetFilters = () => {
