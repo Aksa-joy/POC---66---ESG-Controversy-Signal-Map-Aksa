@@ -1,6 +1,11 @@
 import os
+import sys
 import json
 from datetime import datetime, timedelta
+
+# Adjust sys.path to support direct execution of this script
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 import pandas as pd
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -122,4 +127,5 @@ def get_overview():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    app_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True, app_dir=app_dir)

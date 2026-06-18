@@ -78,19 +78,27 @@ def get_controversies(
                 pass
                 
         # Enrich controversy with details
-        gdelt_meta = gdelt_client.get_controversy_source_metadata(comp_name, cont["category"])
-        edgar_meta = edgar_client.get_filing_disclosure(comp_name, cont["category"])
-        
-        enriched_cont = {
-            **cont,
-            "sector": comp_sector,
-            "headline": gdelt_meta["headline"],
-            "url": gdelt_meta["url"],
-            "source_domain": gdelt_meta["domain"],
-            "sec_disclosure": edgar_meta["disclosure_text"],
-            "sec_url": edgar_meta["sec_url"],
-            "filing_type": edgar_meta["filing_type"]
-        }
+        if company:
+            # Fetch live data on the fly
+            gdelt_meta = gdelt_client.get_controversy_source_metadata(comp_name, cont["category"])
+            edgar_meta = edgar_client.get_filing_disclosure(comp_name, cont["category"])
+            
+            enriched_cont = {
+                **cont,
+                "sector": comp_sector,
+                "headline": gdelt_meta["headline"],
+                "url": gdelt_meta["url"],
+                "source_domain": gdelt_meta["domain"],
+                "sec_disclosure": edgar_meta["disclosure_text"],
+                "sec_url": edgar_meta["sec_url"],
+                "filing_type": edgar_meta["filing_type"]
+            }
+        else:
+            # Use pre-populated cached values from controversies.json
+            enriched_cont = {
+                **cont,
+                "sector": comp_sector
+            }
         filtered.append(enriched_cont)
         
     return filtered

@@ -1,8 +1,15 @@
-import json
 import os
+import sys
+
+# Adjust sys.path to support direct execution of this script
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+
+import json
 import random
 from datetime import datetime, timedelta
 from typing import List, Dict, Any
+from app.services.gdelt_service import gdelt_client
+from app.services.edgar_service import edgar_client
 
 # Ensure directory exists
 DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data"))
@@ -217,6 +224,9 @@ def generate_mock_data():
         
         severity = get_severity_score(source, date_str, prev_count, category)
         
+        gdelt_meta = gdelt_client.get_controversy_source_metadata(company_name, category, force_simulation=True)
+        edgar_meta = edgar_client.get_filing_disclosure(company_name, category, force_simulation=True)
+        
         controversies.append({
             "id": c_id,
             "company": company_name,
@@ -226,7 +236,13 @@ def generate_mock_data():
             "date": date_str,
             "latitude": round(lat, 4),
             "longitude": round(lng, 4),
-            "source": source
+            "source": source,
+            "headline": gdelt_meta["headline"],
+            "url": gdelt_meta["url"],
+            "source_domain": gdelt_meta["domain"],
+            "sec_disclosure": edgar_meta["disclosure_text"],
+            "sec_url": edgar_meta["sec_url"],
+            "filing_type": edgar_meta["filing_type"]
         })
         
     # Sort controversies by date descending (most recent first)
